@@ -234,6 +234,21 @@ ul.news time { color: var(--taupe-ink); font-variant-numeric: tabular-nums; font
 footer { padding: 28px 0 40px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: space-between; }
 
+/* 大螢幕：內容放寬並整體放大，左右才不會空出一大片（2026-10-03 老師：視窗放大後會有空白的區域）。
+   字多的段落改兩欄，一行才不會拉得太長。 */
+@media (min-width: 1360px) {
+  .wrap { max-width: 1320px; }
+  .terms ol { columns: 2; column-gap: 56px; }
+  .terms li { break-inside: avoid; }
+  .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; align-items: start; }
+}
+@media (min-width: 1680px) {
+  html { zoom: 1.08; }
+  .wrap { max-width: 1480px; }
+}
+@media (min-width: 2200px) {
+  html { zoom: 1.25; }
+}
 @media (max-width: 1024px) {
   .hero .wrap { grid-template-columns: 1fr; padding-top: 44px; padding-bottom: 44px; }
   .gate { max-width: 560px; }
