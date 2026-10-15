@@ -532,7 +532,8 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: s
   // 這一頁放在兩個地方：智多星主機上的 /static/portal/（同一個網站，按鈕用相對路徑），以及 GitHub Pages
   // （https://ying-ying11.github.io/NHRI_chat_page/）。放在別的網站或直接開檔時，按鈕要連回院內主機，網址再帶
   // nhri_agreed（1＝這次、30＝30 天）：院內主機的轉址程式看到它就記下「已同意」，不會再擋一次（scripts/apply_portal.py）。
-  var APP_BASE = 'http://10.71.11.51:8080';
+  // 2026-10-15 起正式主機是 Linux（z9-7950x）；原本的 Windows 主機 10.71.11.51 已停用。
+  var APP_BASE = 'http://10.71.10.131:8080';
   var onApp = /^https?:$/.test(location.protocol) && location.pathname.indexOf('/static/portal/') === 0;
   var boxes = [].slice.call(document.querySelectorAll('[data-agree]'));
   var remember = document.getElementById('remember');
